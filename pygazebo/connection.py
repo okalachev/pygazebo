@@ -171,12 +171,12 @@ class Connection(object):
             else:
                 data = await self._reader.readexactly(size)
                 return data
-        except (ConnectionResetError, asyncio.streams.IncompleteReadError) as e:
+        except (ConnectionResetError, asyncio.IncompleteReadError) as e:
             if self._closed:
                 return None
             else:
                 local_addr, local_port = self._writer.transport.get_extra_info('sockname')
-                discarded_bytes = len(e.partial) if isinstance(e, asyncio.streams.IncompleteReadError) else None
+                discarded_bytes = len(e.partial) if isinstance(e, asyncio.IncompleteReadError) else None
                 if header is not None:
                     discarded_bytes += 8
                 raise DisconnectError(
