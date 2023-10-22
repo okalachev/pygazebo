@@ -37,4 +37,4 @@ __all__ = ["connect", "Manager", "Publisher", "Subscriber"]
 
 __author__ = 'Josh Pieper'
 __email__ = 'jjp@pobox.com'
-__version__ = '4.0.0-2019.07'
+__version__ = '4.0.0'
